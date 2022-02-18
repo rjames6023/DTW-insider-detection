@@ -619,7 +619,7 @@ class EnsembleGaussianMixtureModel():
     
     def fit(self, X_train):
         """
-        fit OCSVM to transactions in X_train
+        fit GMM to transactions in X_train
         """
         self.X_train = X_train
         self.mixture_component_upper_limit = int(np.floor(min(0.2*len(X_train), self.mixture_component_upper_limit)))
@@ -658,7 +658,7 @@ class EnsembleGaussianMixtureModel():
 
     def predict(self, X_test, X_train = None):
         """
-        predict class labels and the log-likelihood scores for ROC cruve
+        predict class labels and the log-likelihood scores
         """
         
         if X_train is not None: #retrain a new model using a revised training set - for use with simulations
@@ -677,6 +677,9 @@ class EnsembleGaussianMixtureModel():
 
 class IsolationForest_classifier:
     """
+    Isolation forest. See Liu, F.T., Ting, K.M. and Zhou, Z.H., 2008, December. 
+    In 2008 eighth ieee international conference on data mining (pp. 413-422). IEEE.
+    
     """
     
     def __init__(self, features):
@@ -684,7 +687,6 @@ class IsolationForest_classifier:
         
     def fit(self, X_train):
         """
-        
 
         """
         
